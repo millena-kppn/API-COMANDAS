@@ -21,7 +21,7 @@ namespace Comandas.Api.Controllers
         [HttpGet]
         public IResult Get()
         {
-            var cardapios = _context.CardapioItems.ToList();
+            var cardapios = _context.CardapioItems.Include(ci => ci.CategoriaCardapio).ToList();
             return Results.Ok(cardapios);
         }
 
